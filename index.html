@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expenses bar</title>
+    <link rel="icon" href="images/favicon-32x32.png">
+  </head>
+
+  <style>
+    body{
+      background-color: hsl(27, 66%, 92%);
+      text-align: center;
+      font-family: sans-serif;
+    }
+    #heading {
+      margin-top: 10px;
+      background-color: hsl(10, 79%, 65%);
+      display: inline-block;
+      border-radius: 25px;
+      margin-bottom: 25px;
+    }
+    #content {
+      padding: 25px;
+      text-align: left;
+      color: white;
+    }
+    #charts {
+      background-color: white;
+      border-radius: 25px;
+      color: black;
+    }
+    #bars {
+      margin: 25px;
+      display: flex;
+      justify-content: space-around;
+      align-items: end;
+      padding-bottom: 25px;
+      border-bottom: 1px solid lightgrey;
+    }
+    #bars > div > div > div {
+      background-color: hsl(10, 79%, 65%); 
+      width: 50px;
+      border-radius: 5px;
+    }
+    #bars > div > div {
+      color: gray;
+    }
+    .onhover {
+      background-color: black;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 2px;
+      display: none;
+    }
+  </style>
+
+  <body>
+    <div style="display: inline-block;">
+      <div style="display: inline-block;">
+
+        <div id="heading">
+          <div id="content">
+            <div>My balance</div>
+            <h1 style="display: inline;">$921.48</h1>
+            <img src="images/logo.svg" style="margin-left: 450px; display: inline;">
+          </div>
+        </div>
+
+        <div id="charts">
+
+          <div style="font-size: 25px; padding-top: 15px;">Spending - Last 7 days</div>
+          <div id="bars">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$17.45</div>
+              <div>
+                <div style="height: 69.8px;"></div>
+                mon
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 139.64px;"></div>
+                tue
+              </div>
+            </div>
+
+            <!-- <div><div style="height: ;"></div>wed</div>
+            <div><div style="height: ;"></div>thu</div>
+            <div><div style="height: ;"></div>fri</div>
+            <div><div style="height: "></div>sat</div>
+            <div><div style="height: "></div>sun</div> -->
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 209.44px;"></div>
+                tue
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 124.28px;"></div>
+                tue
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 93.56px;"></div>
+                tue
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 101.92px;"></div>
+                tue
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="onhover" style="color: white;">$34.91</div>
+              <div>
+                <div style="height: 139.64px;"></div>
+                tue
+              </div>
+            </div>
+
+          </div>
+
+          <div style="padding-bottom: 10px;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-left: 35px; margin-right: 35px; margin-bottom: 25px;">
+                <div>
+                  <span style="color: grey;">Total this month</span>
+                  <h1 style="margin-top: 1px; margin-bottom: 0;">$473.41</h1>
+                </div>
+                <div>
+                 <h3 style="margin-bottom: 1px;">+2.4%</h3>
+                  from last month
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- #bars [0][1] > div -->
+
+    <script>
+      const toDay = new Date().getDay();
+      const x = document.querySelector('#bars');
+      x.children[toDay].children[1].querySelector('div').style.backgroundColor = 'hsl(186, 34%, 60%)';
+
+      function show(n) {
+        document.querySelector('#bars').children[n].children[0].style.display = 'block';
+      }
+
+      function hide(n) {
+        document.querySelector('#bars').children[n].children[0].style.display = 'none';
+      }
+
+      document.querySelector('#bars').children[0].children[1].querySelector('div').addEventListener('mouseover', function() {show(0);});
+      document.querySelector('#bars').children[0].children[1].querySelector('div').addEventListener('mouseout', function() {hide(0);});
+
+      document.querySelector('#bars').children[1].children[1].querySelector('div').addEventListener('mouseover', function() {show(1);});
+      document.querySelector('#bars').children[1].children[1].querySelector('div').addEventListener('mouseout', function() {hide(1);});
+
+      document.querySelector('#bars').children[2].children[1].querySelector('div').addEventListener('mouseover', function() {show(2);});
+      document.querySelector('#bars').children[2].children[1].querySelector('div').addEventListener('mouseout', function() {hide(2);});
+
+      document.querySelector('#bars').children[3].children[1].querySelector('div').addEventListener('mouseover', function() {show(3);});
+      document.querySelector('#bars').children[3].children[1].querySelector('div').addEventListener('mouseout', function() {hide(3);});
+
+      document.querySelector('#bars').children[4].children[1].querySelector('div').addEventListener('mouseover', function() {show(4);});
+      document.querySelector('#bars').children[4].children[1].querySelector('div').addEventListener('mouseout', function() {hide(4);});
+
+      document.querySelector('#bars').children[5].children[1].querySelector('div').addEventListener('mouseover', function() {show(5);});
+      document.querySelector('#bars').children[5].children[1].querySelector('div').addEventListener('mouseout', function() {hide(5);});
+
+      document.querySelector('#bars').children[6].children[1].querySelector('div').addEventListener('mouseover', function() {show(6);});
+      document.querySelector('#bars').children[6].children[1].querySelector('div').addEventListener('mouseout', function() {hide(6);});
+    </script>
+    
+  </body>
+</html>
