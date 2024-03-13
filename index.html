@@ -159,10 +159,16 @@
 
       function show(n) {
         document.querySelector('#bars').children[n].children[0].style.display = 'block';
+        if(n == toDay)
+        document.querySelector('#bars').children[n].children[1].querySelector('div').style.backgroundColor = '#b4dfe5';
+        else document.querySelector('#bars').children[n].children[1].querySelector('div').style.backgroundColor = '#ff9b87';
       }
 
       function hide(n) {
         document.querySelector('#bars').children[n].children[0].style.display = 'none';
+        if(n == toDay)
+        document.querySelector('#bars').children[n].children[1].querySelector('div').style.backgroundColor = 'hsl(186, 34%, 60%)';
+        else document.querySelector('#bars').children[n].children[1].querySelector('div').style.backgroundColor = 'hsl(10, 79%, 65%)';
       }
 
       document.querySelector('#bars').children[0].children[1].querySelector('div').addEventListener('mouseover', function() {show(0);});
